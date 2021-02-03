@@ -50,4 +50,4 @@ If you want to do development on the app, it can be helpful to have it rebuild i
 
 ### Google Cloud
 
-ad hoc hosts this application and its static assets on google cloud; getting that set up is beyond the scope of this README. If you're interested in this, file an issue on the repository and tag @llimllib
+ad hoc hosts this application and its static assets on google cloud; getting that set up is beyond the scope of this README. If you're interested in this, file an issue on the repository and tag `@llimllib`
