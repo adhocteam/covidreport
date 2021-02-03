@@ -1,0 +1,194 @@
+{
+  "id": "25000285",
+  "resourceType": "Patient",
+  "extension": [
+    {
+      "url": "https://www.hl7.org/fhir/us/core/StructureDefinition-us-core-race",
+      "extension": [
+        {
+          "url": "ombCategory",
+          "valueCoding": {
+            "system": "https://www.hl7.org/fhir/us/core/CodeSystem-cdcrec.html",
+            "code": "2054-5",
+            "display": "Black or African American"
+          }
+        },
+        {
+          "url": "text",
+          "valueString": "Black or African American"
+        }
+      ]
+    },
+    {
+      "url": "https://www.hl7.org/fhir/us/core/StructureDefinition-us-core-ethnicity",
+      "extension": [
+        {
+          "url": "ombCategory",
+          "valueCoding": {
+            "system": "https://www.hl7.org/fhir/us/core/CodeSystem-cdcrec.html",
+            "code": "*Unknown at this time*",
+            "display": "*Unknown at this time*"
+          }
+        },
+        {
+          "url": "text",
+          "valueString": "*Unknown at this time*"
+        }
+      ]
+    },
+    {
+      "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex",
+      "valueCode": "M"
+    }
+  ],
+  "identifier": [
+    {
+      "use": "usual",
+      "type": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/v2/0203",
+            "code": "MR"
+          }
+        ]
+      },
+      "system": "http://va.gov/mpi",
+      "value": "25000285",
+      "assigner": {
+        "display": "Master Patient Index"
+      }
+    },
+    {
+      "use": "official",
+      "type": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/v2/0203",
+            "code": "SB"
+          }
+        ]
+      },
+      "system": "http://hl7.org/fhir/sid/us-ssn",
+      "value": "999-65-5510",
+      "assigner": {
+        "display": "United States Social Security Number"
+      }
+    }
+  ],
+  "name": [
+    {
+      "use": "usual",
+      "text": "Mr. Porfirio146 Schmeler639",
+      "family": "Schmeler639",
+      "given": ["Porfirio146"]
+    }
+  ],
+  "telecom": [
+    {
+      "system": "phone",
+      "value": "5559974811",
+      "use": "mobile"
+    },
+    {
+      "system": "email",
+      "value": "Porfirio146.Schmeler639@email.example",
+      "use": "home"
+    }
+  ],
+  "gender": "male",
+  "birthDate": "1916-06-15",
+  "deceasedDateTime": "2010-12-25T05:39:20Z",
+  "address": [
+    {
+      "line": ["615 Windler Lane"],
+      "city": "St. Louis",
+      "state": "Missouri",
+      "postalCode": "63101"
+    }
+  ],
+  "maritalStatus": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/marital-status",
+        "code": "M",
+        "display": "Married"
+      }
+    ],
+    "text": "Married"
+  },
+  "contact": [
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/patient-contact-relationship",
+              "code": "family",
+              "display": "Family"
+            }
+          ],
+          "text": "SPOUSE EMPLOYER"
+        }
+      ],
+      "name": {
+        "text": "Ziemann526, Danilo476"
+      },
+      "telecom": [
+        {
+          "system": "phone",
+          "value": "5552544457",
+          "use": "home"
+        },
+        {
+          "system": "phone",
+          "value": "5551388581",
+          "use": "work"
+        }
+      ],
+      "address": {
+        "line": ["309 Leuschke Lodge", "Apt. 570"],
+        "city": "Lake Zoilaborough",
+        "state": "Delaware",
+        "postalCode": "06338-0220"
+      }
+    },
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/patient-contact-relationship",
+              "code": "emergency",
+              "display": "Emergency"
+            }
+          ],
+          "text": "EMERGENCY CONTACT"
+        }
+      ],
+      "name": {
+        "text": "Klocko945, Elwood417"
+      },
+      "telecom": [
+        {
+          "system": "phone",
+          "value": "5558997320",
+          "use": "home"
+        },
+        {
+          "system": "phone",
+          "value": "5557651464",
+          "use": "work"
+        }
+      ],
+      "address": {
+        "line": ["982 Walker Corners", "Suite 210"],
+        "city": "Bednarfurt",
+        "state": "Arkansas",
+        "postalCode": "27837"
+      }
+    }
+  ],
+  "managingOrganization": {
+    "reference": "https://sandbox-api.va.gov/services/fhir/v0/r4/Organization/I2-DDXCEZ5FQONTXO3G5HXFCQVDH6BN5ZYT52IPKBEGO4SL3GKI3DDQ0000"
+  }
+}

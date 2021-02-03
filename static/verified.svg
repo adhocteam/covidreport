@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="100px" height="100px" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>verified</title>
+    <defs>
+        <path d="M40,48 C40,43.581722 43.581722,40 48,40 L366,40 C370.418278,40 374,43.581722 374,48 L374,688 C374,692.418278 370.418278,696 366,696 L48,696 C43.581722,696 40,692.418278 40,688 L40,48 Z" id="path-1"></path>
+        <filter x="-4.2%" y="-1.5%" width="108.4%" height="104.3%" filterUnits="objectBoundingBox" id="filter-3">
+            <feOffset dx="0" dy="4" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="4" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.1 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <filter id="filter-4">
+            <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0.000000 0 0 0 0 0.662745 0 0 0 0 0.110458 0 0 0 1.000000 0"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Vaccination-Status" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Positive-Status" transform="translate(-158.000000, -484.000000)">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <g id="Mask" fill="black" fill-opacity="1">
+                <use filter="url(#filter-3)" xlink:href="#path-1"></use>
+            </g>
+            <g id="Main" mask="url(#mask-2)">
+                <g transform="translate(42.000000, 152.000000)">
+                    <rect id="Card-Bottom" fill="#FFFFFF" x="0" y="0" width="334" height="507"></rect>
+                    <g id="Status" stroke-width="1" fill="none" transform="translate(66.000000, 332.000000)">
+                        <g filter="url(#filter-4)" id="verified">
+                            <g transform="translate(50.000000, 0.000000)">
+                                <rect id="Rectangle" x="0" y="0" width="100" height="100"></rect>
+                                <path d="M91,49.5 L82.15,39.270288 L83.4,25.7146597 L70.25,22.6910995 L63.4,11 L51,16.3920157 L38.65,11 L31.75,22.6910995 L18.65,25.7146597 L19.9,39.270288 L11,49.5 L19.85,59.729712 L18.6,73.2853403 L31.75,76.3089005 L38.6,88 L51,82.5575916 L63.35,87.9496073 L70.2,76.2585079 L83.35,73.2349476 L82.1,59.6793194 L91,49.5 Z M43.95,64.9705497 L33.35,54.2873037 L36.9,50.7094241 L43.95,57.8147906 L65.15,36.4482984 L68.7,40.026178 L43.95,64.9705497 Z" id="Shape" fill="#000000" fill-rule="nonzero"></path>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

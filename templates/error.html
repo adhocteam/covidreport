@@ -1,0 +1,17 @@
+{{template "header.html" .}}
+<main id="main-content">
+  <div class="grid-container">
+    <div class="grid-row">
+      <div class="grid-col-auto">
+        <a href="/" class="usa-button">home</a>
+        <div class="usa-alert usa-alert--error" role="alert">
+          <div class="usa-alert__body">
+            <h3 class="usa-alert__heading">Error occurred</h3>
+            <p class="usa-alert__text">{{.Error}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+{{template "footer.html" .}}

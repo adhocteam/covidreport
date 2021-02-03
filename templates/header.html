@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html><head>
+    <title>Covid Record</title>
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="https://storage.googleapis.com/covidrecord-static-assets/uswds-2.10.0/css/uswds.min.css" />
+    <script src="https://storage.googleapis.com/covidrecord-static-assets/uswds-2.10.0/js/uswds-init.min.js"></script>
+<script>
+function flipCard(_evt) {
+    document.querySelector(".card").classList.toggle("is-flipped");
+    // I don't understand why the links don't seem to obey backface-visibility:
+    // hidden; just hide them with js in the meantime
+    // document.querySelectorAll(".details-link").forEach(n => n.classList.toggle("hide"));
+}
+
+window.addEventListener("DOMContentLoaded", async (_evt) => {
+    document.querySelectorAll(".details-link").forEach(
+        node => node.addEventListener("click", flipCard));
+});
+</script>
+<style>
+.header {
+  color: #FFFFFF;
+  background-image: url("//storage.googleapis.com/covidrecord-static-assets/vial.svg"), linear-gradient(rgba(0,118,214,0.50), #0066FF);
+  background-repeat: no-repeat, repeat-x;
+
+  background-position: -15px -10px, 0 0;
+  padding-left: 90px;
+
+  /* the height-15 class is slightly too large, so use a custom value */
+  height: 7.0rem;
+}
+.vax-complete {
+  background: #008817;
+  font-size: 22px;
+  color: #B7F5BD;
+}
+.vax-complete-demo {
+  background: #00A91C;
+  color: #FFFFFF;
+  text-align: center;
+  line-height: 24px;
+}
+.vax-complete-details {
+  background: #E3F5E1;
+}
+.vax-partial {
+  background: #DDAA01;
+  font-size: 22px;
+  color: #000;
+}
+.vax-partial-demo {
+  background: #FACE00;
+  color: #000;
+  text-align: center;
+  line-height: 24px;
+}
+.vax-partial-details {
+  background: #FFF5C2;
+  color: #776017;
+}
+.vax-pending {
+  background: #A23737;
+  font-size: 22px;
+  color: #F7BBB1;
+}
+.vax-pending-demo {
+  background: #D83933;
+  color: #FFFFFF;
+  text-align: center;
+  line-height: 24px;
+}
+.vax-pending-details {
+  background: #F8E1DE;
+}
+
+/* make a div completely clickable by basically squashing an invisible link over the top of it
+  https://stackoverflow.com/a/3494108
+  http://jsfiddle.net/mrivasa/TK69d/ */
+.full-div-link{
+  /* all rules required to make the whole div clickable */ 
+  position:absolute; 
+  width:100%;
+  height:100%;
+  top:0;
+  left: 0;
+  z-index: 1;
+  /* this is a fix for IE7-9 */
+  background-color:#ffffff;
+  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";  
+  filter: alpha(opacity=0);  
+  opacity:0;  
+}
+/* inside the full-div-link, here's what you do to make a visible link */
+.independent-link {
+  position: relative;
+  z-index: 100;
+}
+a.link-pending {
+  text-decoration: none;
+  color: #6F3331;
+}
+a.link-partial {
+  text-decoration: none;
+  color: #776017;
+}
+a.link-complete {
+  text-decoration: none;
+  color: #216E1F;
+}
+
+body {
+  /* body needs to be maxw-mobile + 80px to accomodate the margins */
+  width:400px;
+  /* center */
+  margin: auto;
+}
+.card-scene {
+  perspective: 600px;
+}
+.card {
+  position: relative;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+}
+.card-face {
+  width: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  background: #fff;
+}
+/* card body height + demo header + details link height == card-height */
+.card-height {
+  height: 702px;
+}
+.card-body-height {
+  height: 590px;
+}
+.card-face-back {
+  position: relative;
+  /* must match card-height */
+  top: -702px;
+  transform: rotateY( 180deg );
+}
+.card.is-flipped {
+  transform: rotateY(180deg);
+}
+
+.hide {
+  display: none;
+}
+
+/* XXX: feels like I should probably do this with the wds system, but not sure how */
+.vaxTable {
+  width: 95%;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0px;
+  table-layout: fixed;
+}
+</style>
+  </head>
+  <body class="bg-base-lightest">
+    <a class="usa-skipnav" href="#main-content">Skip to main content</a>

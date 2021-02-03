@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="100px" height="100px" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>report</title>
+    <defs>
+        <path d="M40,48 C40,43.581722 43.581722,40 48,40 L366,40 C370.418278,40 374,43.581722 374,48 L374,688 C374,692.418278 370.418278,696 366,696 L48,696 C43.581722,696 40,692.418278 40,688 L40,48 Z" id="path-1"></path>
+        <filter x="-4.2%" y="-1.5%" width="108.4%" height="104.3%" filterUnits="objectBoundingBox" id="filter-3">
+            <feOffset dx="0" dy="4" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="4" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.1 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <filter id="filter-4">
+            <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0.847059 0 0 0 0 0.223529 0 0 0 0 0.200000 0 0 0 1.000000 0"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Vaccination-Status" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Negative-Status" transform="translate(-157.000000, -480.000000)">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <g id="Mask" fill="black" fill-opacity="1">
+                <use filter="url(#filter-3)" xlink:href="#path-1"></use>
+            </g>
+            <g id="Main" mask="url(#mask-2)">
+                <g transform="translate(40.000000, 150.000000)">
+                    <rect id="Card-Bottom" fill="#FFFFFF" x="0" y="0" width="334" height="508"></rect>
+                    <g id="Status" stroke-width="1" fill="none" transform="translate(96.000000, 330.000000)">
+                        <g filter="url(#filter-4)" id="report">
+                            <g transform="translate(21.000000, 0.000000)">
+                                <polygon id="Path" points="0 0 100 0 100 100 0 100"></polygon>
+                                <path d="M66.0416667,14 L34.9583333,14 L13,35.9583333 L13,67.0416667 L34.9583333,89 L66.0416667,89 L88,67.0416667 L88,35.9583333 L66.0416667,14 Z M50.5,73.5833333 C47.5,73.5833333 45.0833333,71.1666667 45.0833333,68.1666667 C45.0833333,65.1666667 47.5,62.75 50.5,62.75 C53.5,62.75 55.9166667,65.1666667 55.9166667,68.1666667 C55.9166667,71.1666667 53.5,73.5833333 50.5,73.5833333 Z M54.6666667,55.6666667 L46.3333333,55.6666667 L46.3333333,30.6666667 L54.6666667,30.6666667 L54.6666667,55.6666667 Z" id="Shape" fill="#000000" fill-rule="nonzero"></path>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,174 @@
+{{template "header.html" .}}
+{{$vaxes := len .Vaccinations}}
+{{$status := "pending"}}
+{{if eq $vaxes 1}}
+  {{$status = "partial"}}
+{{else if eq $vaxes 2}}
+  {{$status = "complete"}}
+{{end}}
+<main id="main-content" class="maxw-mobile margin-left-5 margin-right-5 margin-top-1">
+  <div class="grid-container padding-0 shadow-2 radius-lg">
+    <div class="grid-row height-5 radius-top-lg padding-top-1 vax-{{$status}}">
+      <div class="grid-col text-center text-middle">
+        {{if eq $status "pending"}}
+          VACCINATION PENDING
+        {{else if eq $status "partial"}}
+          PARTIAL VACCINATION
+        {{else}}
+          VACCINATION COMPLETE
+        {{end}}
+      </div>
+    </div>
+    <div class="card-scene width-mobile card-height">
+      <div class="card text-center">
+        <!-- on each card face, the header row takes up 80px (height-10), the
+          body row 530, and the flip button 32 for a total of 642px. Because of
+          the way they are relatively positioned, they need to be the exact
+          same height -->
+        <div class="card-face card-face-front card-height text-center radius-bottom-lg">
+          <div class="grid-row height-10">
+            <div class="grid-col vax-{{$status}}-demo">
+              <div class="padding-top-2">
+                <span class="font-sans-lg">{{.Name}}</span>
+                <br>
+                 <!-- TODO format date -->
+                <span class="font-sans-md text-light">DOB &mdash; {{.Patient.BirthDate.Format "02 Jan 2006"}}</span>
+              </div>
+            </div>
+          </div> <!-- demographic header -->
+          <div class="grid-row card-body-height">
+            <div class="grid-col">
+              <img src="data:image/png;base64,{{.QrCodePng}}" width="100%"/>
+              {{if eq $status "pending"}}
+                <svg style="fill:#D83933;" xmlns="http://www.w3.org/2000/svg" height="100" viewBox="0 0 24 24" width="100"><path d="M0 0h24v24H0z" fill="none"/><path d="M15.73 3H8.27L3 8.27v7.46L8.27 21h7.46L21 15.73V8.27L15.73 3zM12 17.3c-.72 0-1.3-.58-1.3-1.3 0-.72.58-1.3 1.3-1.3.72 0 1.3.58 1.3 1.3 0 .72-.58 1.3-1.3 1.3zm1-4.3h-2V7h2v6z"/></svg>
+                <p><b>{{.DosesRemaining}}</b>
+              {{else if eq $status "partial"}}
+                <svg style="fill:#B38C00" xmlns="http://www.w3.org/2000/svg" height="100" viewBox="0 0 24 24" width="100"><path d="M0 0h24v24H0z" fill="none"/><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg>
+                <p><b>{{.DosesRemaining}}</b>
+              {{else if eq $status "complete"}}
+                <svg style="fill:#00A91C" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 20 20" height="100" viewBox="0 0 20 20" width="100"><g><rect fill="none" height="20" width="20"/></g><g><path d="M18,10l-1.77-2.03l0.25-2.69l-2.63-0.6l-1.37-2.32L10,3.43L7.53,2.36L6.15,4.68L3.53,5.28l0.25,2.69L2,10l1.77,2.03 l-0.25,2.69l2.63,0.6l1.37,2.32L10,16.56l2.47,1.07l1.37-2.32l2.63-0.6l-0.25-2.69L18,10z M8.59,13.07l-2.12-2.12l0.71-0.71 l1.41,1.41l4.24-4.24l0.71,0.71L8.59,13.07z"/></g></svg>
+                <p><b>Dosing schedule complete</b>
+              {{end}}
+            </div>
+          </div>
+          <!-- card flip button -->
+          <div class="grid-row height-4">
+            <a class="grid-col text-center width-full height-6 padding-top-2 vax-{{$status}}-details radius-bottom-lg details-link" href="javascript:void(0)">View Dosage Details →</a>
+          </div>
+        </div> <!-- /card-face-front -->
+        <div class="card-face card-face-back card-height radius-bottom-lg">
+          <div class="grid-row height-10">
+            <div class="grid-col vax-{{$status}}-demo">
+              <div class="padding-top-2">
+                {{if eq $status "pending"}}
+                  <span class="font-sans-lg"><b>2</b> Doses Remaining</span>
+                {{else if eq $status "partial"}}
+                  <span class="font-sans-lg">Moderna Vaccine</span>
+                  <br>
+                  <span class="font-sans-md text-light"><b>1</b> Dose Remaining</span>
+                {{else}}
+                  <span class="font-sans-lg">Moderna Vaccine</span>
+                  <br>
+                  <span class="font-sans-md text-light">Dosing Schedule Complete</span>
+                {{end}}
+              </div>
+            </div>
+          </div>
+          <div class="grid-row card-body-height overflow-y-scroll">
+            <div class="grid-col">
+              <!-- if this table isn't height-full, it will fail to cover the
+              obverse side of the card -->
+              <table class="usa-table usa-table--borderless usa-table--stacked-header usa-table--stacked vaxTable height-full">
+                <thead>
+                  <tr>
+                    <th scope="col">Dose</th>
+                    <th scope="col">Date Given</th>
+                    <th scope="col">Location</th>
+                    <th scope="col">Lot Number</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {{if .Vaccinations}}
+                    <tr>
+                      {{with $vax := index .Vaccinations 0}}
+                      <th data-label="Dose" scope="row">First Dose</th>
+
+                      <td>
+                        <b>Date Given</b><br>
+                        {{$vax.Date.Format "2 Jan 2006"}}
+                      </td>
+                      <td>
+                        <b>Location</b><br>
+                        {{$vax.Location}}
+                      </td>
+                      <td>
+                        <b>Lot Number</b><br>
+                        {{$vax.Lot}}
+                      </td>
+                      {{end}}
+                    </tr>
+                    {{if eq $status "complete"}}
+                      <tr>
+                        {{with $vax := index .Vaccinations 1}}
+                        <th data-label="Dose" scope="row">Second Dose</th>
+
+                        <td>
+                          <b>Date Given</b><br>
+                          {{$vax.Date}}
+                        </td>
+                        <td>
+                          <b>Location</b><br>
+                          {{$vax.Location}}
+                        </td>
+                        <td>
+                          <b>Lot Number</b><br>
+                          {{$vax.Lot}}
+                        </td>
+                        {{end}}
+                      </tr>
+                    {{else}} {{/* second record not available */}}
+                      <tr class="text-center">
+                        <th data-label="Dose" scope="row">Second Dose</th>
+
+                        <td>
+                          <div class="padding-3">
+                            <em>No record</em>
+                          </div>
+                        </td>
+                      </tr>
+                    {{end}}
+                  {{else}} {{/* no records available */}}
+                    <tr class="text-center">
+                      <th data-label="Dose" scope="row">First Dose</th>
+
+                      <td>
+                        <div class="padding-3">
+                          <em>No record</em>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="text-center">
+                      <th data-label="Dose" scope="row">Second Dose</th>
+
+                      <td>
+                        <div class="padding-3">
+                          <em>No record</em>
+                        </div>
+                      </td>
+                    </tr>
+                  {{end}}
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!-- card flip button -->
+          <div class="grid-row height-4">
+            <a class="grid-col text-center width-full height-6 padding-top-2 vax-{{$status}}-details radius-bottom-lg details-link" href="javascript:void(0)">← View Vaccination Status</a>
+          </div>
+        </div> <!-- card-face-back -->
+      </div> <!-- card -->
+    </div> <!-- card-scene -->
+
+  </div>
+</main>
+{{template "footer.html" .}}

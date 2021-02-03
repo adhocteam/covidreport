@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="135px" height="205px" viewBox="0 0 135 205" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Vial</title>
+    <defs>
+        <path d="M98.780681,76.8003818 L92.5730131,69.7543877 L92.6405891,69.7543877 L92.6405891,52.9617063 L100.870876,52.9617063 L100.870876,35.2222704 C100.870876,32.3378092 98.5290188,30 95.6395638,30 L63.5969055,30 L39.3650966,30 C36.4756416,30 34.1337849,32.3378092 34.1337849,35.2222704 L34.1337849,52.9617063 L42.3640713,52.9617063 L42.3640713,69.7543877 L42.4316473,69.7543877 L36.2239794,76.7980556 C32.2136954,81.3503866 30,87.2030513 30,93.265072 L30,156.727869 C30,166.818831 38.1953334,175 48.3037656,175 L80.4536134,175 L86.2861182,175 C96.6205804,175 105,166.635063 105,156.318462 L105,121.421135 L105,93.2627459 C105,87.2030513 102.788635,81.3503866 98.780681,76.8003818 Z" id="path-1"></path>
+        <filter x="-60.0%" y="-31.0%" width="220.0%" height="162.1%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="15" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.0274509804   0 0 0 0 0.294117647   0 0 0 0 0.411764706  0 0 0 1 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Vaccination-Status" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Vial" fill-rule="nonzero">
+            <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+            <use fill="#FFFFFF" xlink:href="#path-1"></use>
+        </g>
+    </g>
+</svg>

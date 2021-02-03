@@ -1,0 +1,53 @@
+{{template "header.html" .}}
+<main
+  id="main-content"
+  class="maxw-mobile margin-left-5 margin-right-5 margin-top-1"
+>
+  <!-- TODO: I couldn't get this or its parent to center - what am I missing here
+    https://designsystem.digital.gov/utilities/flex/
+  -->
+  <div class="grid-container padding-0 shadow-2">
+    <!-- header area
+      TODO: Should have a dotted bottom border but I can't get it to show up properly -->
+    <div class="grid-row header radius-top-lg">
+      <div class="grid-row">
+        <div
+          class="grid-col-auto margin-left-2 margin-top-3 line-height-sans-3"
+        >
+          <!-- TODO: we want this in public sans, but it seems like I might
+            have to recompile to get that avaialble? Leaving it in source sans
+            for now-->
+          <span class="font-sans-xl margin-top-3">COVID-19</span>
+          <br />
+          <span class="font-sans-lg">Vaccine Verification</span>
+        </div>
+      </div>
+    </div>
+    <!--- body text and button container -->
+    <div
+      class="grid-row border-left border-right border-bottom radius-bottom-lg border-gray-5"
+    >
+      <div
+        class="grid-row usa-prose intro line-height-sans-6 font-sans-lg text-light usa-prose padding-3"
+      >
+        By connecting this app to your VA or CMS medical records you can easily
+        track your vaccination status and communicate it with others.
+      </div>
+      <div class="grid-row padding-3 font-sans-sm width-full">
+        <div class="grid-col-auto width-full">
+          <a href="{{.BBAuthURL}}" class="usa-button width-full font-sans-xs"
+            >Connect With Blue Button</a
+          >
+        </div>
+      </div>
+      <div class="grid-row padding-3 font-sans-sm width-full">
+        <div class="grid-col-auto width-full">
+          <a href="{{.VAAuthURL}}" class="usa-button width-full font-sans-xs"
+            >Connect with VA Lighthouse</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+{{template "footer.html" .}}

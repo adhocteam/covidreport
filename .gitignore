@@ -1,0 +1,4 @@
+.envrc
+covidreport
+*.pem
+.DS_Store

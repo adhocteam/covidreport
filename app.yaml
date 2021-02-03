@@ -1,0 +1,11 @@
+runtime: go115
+env_variables:
+  PROJECT_ID: 'covidrecord'
+  COVID_RECORD_PORT: '8080'
+  BB_URL: 'https://sandbox.bluebutton.cms.gov'
+  BB_REDIRECT_URL: 'https://covidrecord.adhoc.pizza/bbcallback'
+  BB_CLIENT_ID: 'bb_client_id_goes_here'
+  VA_CLIENT_ID: 'va_client_id_goes_here'
+  VA_REDIRECT_URL: 'https://covidrecord.adhoc.pizza/callback'
+  VA_URL: 'https://sandbox-api.va.gov'
+  VA_FHIR_URL: 'https://sandbox-api.va.gov/services/fhir/v0/r4'
