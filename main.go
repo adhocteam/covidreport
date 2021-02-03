@@ -12,8 +12,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/adhocteam/covidpassport/bluebutton"
-	"github.com/adhocteam/covidpassport/lighthouse"
+	"github.com/adhocteam/covidreport/bluebutton"
+	"github.com/adhocteam/covidreport/lighthouse"
 	"github.com/skip2/go-qrcode"
 
 	secretmanager "cloud.google.com/go/secretmanager/apiv1"
