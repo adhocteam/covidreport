@@ -1,0 +1,23 @@
+# vim: set ft=sh:
+
+export SSL_CERT="certs/localhost.dev+3.pem"
+export SSL_KEY="certs/localhost.dev+3-key.pem"
+
+############
+# BB
+export BB_CLIENT_ID="<your_client_id>"
+export BB_CLIENT_SECRET="<your_client_secret>"
+export BB_URL="https://sandbox.bluebutton.cms.gov"
+# make sure you replace this with whatever you tell blue button your callback
+# URL is, or use this
+export BB_REDIRECT_URL="https://localhost.dev:6655/bbcallback"
+
+###########
+# VA
+export VA_URL="https://sandbox-api.va.gov"
+export VA_FHIR_URL="https://sandbox-api.va.gov/services/fhir/v0/r4"
+export VA_CLIENT_ID="<your_client_id>"
+export VA_CLIENT_SECRET="<your_client_secret>"
+# make sure you replace this with whatever you tell VA Lighthouse callback URL
+# is, or use this as tyour callback URL
+export VA_REDIRECT_URL="https://localhost.dev:6655/callback"
