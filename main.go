@@ -438,9 +438,14 @@ func main() {
 		CallbackURL:  mustEnv("VA_REDIRECT_URL"),
 	}
 
+	// local BB_CLIENT_SECRET will override the google app secret
+	bbClientSecret := env("BB_CLIENT_SECRET", "")
+	if bbClientSecret == "" {
+		bbClientSecret = secret("BB_CLIENT_SECRET")
+	}
 	bbClient := bluebutton.Client{
 		BBClientID:     mustEnv("BB_CLIENT_ID"),
-		BBClientSecret: secret("BB_CLIENT_SECRET"),
+		BBClientSecret: mustEnv("BB_CLIENT_SECRET"),
 		BBURL:          mustEnv("BB_URL"),
 		CallbackURL:    mustEnv("BB_REDIRECT_URL"),
 	}
